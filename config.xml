@@ -91,16 +91,14 @@
         <access origin="*"/>
         <allow-navigation href="*" />
         <allow-intent href="*" />
-        
         <plugin name="cordova-plugin-contacts" source="npm">
             <variable name="CONTACTS_USAGE_DESCRIPTION" value="to add contact" />
         </plugin>
-        
-        <!--<gap:plugin name="cordova-plugin-camera" source="npm" />-->
-        <gap:plugin name="cordova-plugin-device" source="npm"/>
+        <gap:plugin name="cordova-plugin-device" source="npm" />
         <gap:plugin name="cordova-plugin-dialogs" source="npm" />
-       
-        <gap:plugin name="cordova-plugin-geolocation" source="npm"/>
+        <gap:plugin name="cordova-plugin-file-transfer" source="npm" spec="1.6.3"/>
+        <gap:plugin name="cordova-plugin-geolocation" source="npm" spec="1.0.1"/>
+        <gap:plugin name="cordova-plugin-geolocation" source="npm" />
         <gap:plugin name="cordova-plugin-inappbrowser" source="npm" />
         <gap:plugin name="cordova-plugin-network-information" source="npm" />
         <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
@@ -109,36 +107,30 @@
         <gap:plugin name="cordova-plugin-whitelist" source="npm" />
         <gap:plugin name="cordova-plugin-globalization" source="npm" />
         
-        <gap:plugin name="cordova-plugin-file" spec="4.0.0" source="npm" />
-       <gap:plugin name="cordova-plugin-file-transfer" spec="1.6.3" source="npm" />
-        
-        <plugin name="cordova-plugin-camera" source="npm">
-            <variable name="CAMERA_USAGE_DESCRIPTION" value="to send notification" />
-            <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="to send notification" />
-        </plugin>
-        
-        <gap:plugin name="cordova-plugin-actionsheet" source="npm" />
-        <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
+        <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
+    <string>need camera access to take pictures</string>
+</edit-config>
         
         
+        <!--<preference name="android-build-tool" value="gradle" />-->
+
         <gap:plugin name="phonegap-plugin-push" source="npm" spec="1.8.2">
             <param name="SENDER_ID" value="459115189650" />
         </gap:plugin>
         
-        <plugin spec="https://github.com/venkykowshik/startapp.git" source="git" />
-        
-       
-        <plugin spec="https://github.com/ti8m/DocumentHandler.git" source="git" />
-        
-        <gap:plugin name="cordova-plugin-phonedialer" source="npm" />
-
         <!-- ios sms plugin -->
         <plugin spec="https://github.com/DevendraSinghNagar/cordova-sms-all-devices-plugin.git" source="git" />
 
         <!-- Android sms plugin -->
         <gap:plugin name="cordova-plugin-sms" source="npm" />
         
+        
+
+        <gap:plugin name="cordova-plugin-actionsheet" source="npm" />
+        <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
        
+          <gap:plugin name="cordova-plugin-phonedialer" source="npm" />
+        
         <gap:config-file platform="ios" parent="UIStatusBarHidden" overwrite="true">
             <true/>
         </gap:config-file>
@@ -147,14 +139,5 @@
                 <string>Allow GPS</string>
             </array>
         </gap:config-file>
-        
-        
-        <gap:config-file platform="ios" parent="UISupportedInterfaceOrientations~ipad" overwrite="false">
-            <array>
-                <string>UIInterfaceOrientationLandscapeLeft</string>
-                <string>UIInterfaceOrientationLandscapeRight</string>
-            </array>
-        </gap:config-file>
-        
-        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.1</string></gap:config-file>
+        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.2</string></gap:config-file>
     </widget>
